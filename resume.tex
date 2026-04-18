@@ -1,0 +1,186 @@
+\documentclass[11pt,letterpaper]{article}
+
+% Page margins
+\usepackage[letterpaper,margin=0.6in]{geometry}
+
+% Encoding and Fonts
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{mathptmx} % Times New Roman style
+
+% Essential packages
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{fontawesome5} % For icons
+\usepackage{xcolor}
+
+% Removing page numbers
+\pagestyle{empty}
+
+% Table column separation
+\setlength{\tabcolsep}{0em}
+
+% --- Section Formatting ---
+\newcommand{\cvsection}[1]{%
+  \vspace{10pt} 
+  {\noindent\Large\bfseries\scshape #1} 
+  \par           
+  \vspace{2pt}   
+  \hrule         
+  \vspace{6pt}   
+}
+\newcommand{\todo}[1]{{\textcolor{blue}{\textit{[TODO: #1]}}}}
+
+% Helper command for formatting Left-aligned | Right-aligned text
+\newcommand{\headerrow}[2]
+{\begin{tabular*}{\linewidth}{l@{\extracolsep{\fill}}r}
+#1 &
+#2 \\
+\end{tabular*}}
+
+% Bullet list setup
+\setlist[itemize]{leftmargin=1.5em, noitemsep, topsep=2pt}
+
+% Hyperlink setup
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    filecolor=black,
+    urlcolor=black,
+}
+
+\begin{document}
+
+% --- Header ---
+\begin{center}
+	{\Huge \textsc{Chaoxiang Xie}}\\ \vspace{5pt}
+	Shanghai, China \\ \vspace{3pt}
+	\small
+	\raisebox{-0.1\height}{\faPhone} \ (+86) 152-9577-7121 \ \ \textbullet \ \ 
+	\raisebox{-0.1\height}{\faEnvelope} \ \href{mailto:xcxnevergiveup@hhu.edu.cn}{xcxnevergiveup@hhu.edu.cn} \ \ \textbullet \ \ 
+	\raisebox{-0.1\height}{\faGithub} \ \href{https://github.com/bailynlove}{github.com/bailynlove}
+\end{center}
+
+% --- Education Section ---
+\cvsection{Education}
+
+\begin{itemize}
+	\item
+	      \headerrow
+	      {\textbf{Hohai University}}
+	      {\textbf{Sep. 2024 – Present}}
+	      \headerrow
+	      {\emph{M.Sc, Library and Information Studies (Focus on Data Mining)}}
+	      {\emph{Nanjing, China}}
+	      \vspace{0.1em}
+	      \noindent \small \textbf{GPA:} 87/100 \\
+	      \noindent \small \textbf{Relevant Coursework:} Business Intelligence Analysis and Mining, Advanced Information Retrieval, Machine Learning Applications.
+	      	      
+	\vspace{4pt}
+
+	\item
+	      \headerrow
+	      {\textbf{Hohai University}}
+	      {\textbf{Sep. 2018 – Jun. 2022}}
+	      \headerrow
+	      {\emph{B.Sc, Information Management and Information System}}
+	      {\emph{Nanjing, China}}
+	      \vspace{0.1em}
+	      \noindent \small \textbf{GPA:} 85/100 \\
+	      \noindent \small \textbf{Relevant Coursework:} Statistics, Database Principles, Data Structures, Information Security, Calculus, Linear Algebra.
+\end{itemize}
+
+% --- Publications Section ---
+% Moved up because it's crucial for PhD applications
+\cvsection{Publications}
+
+\begin{itemize}
+    \item \textbf{C. Xie}, M. Li. ``Multi-Detector Credibility Fusion Network: A Neural Architecture for Robust Multimodal Review Credibility Assessment.'' \emph{International Journal of Intelligent Systems}. (Under Review).
+    \item Y. Shi, \textbf{C. Xie}, Z. Sun, Y. Chen, C. Zhang, L. Yun, C. Wan, H. Zhang, D. Lo, X. Gu. ``CodeOCR: On the Effectiveness of Vision Language Models in Code Understanding.'' In \emph{Proceedings of ISSTA 2026}.
+\end{itemize}
+
+% --- Research Experience Section ---
+\cvsection{Research Experience}
+
+\begin{itemize}
+    \item 
+    \headerrow
+    {\textbf{LLM for Software Engineering Lab (LLMSE) / Shanghai Jiao Tong University}}
+    {\textbf{Oct. 2024 – Present}} 
+    \headerrow
+    {\emph{Research Assistant (Advisor: Prof. X. Gu)}}
+    {\emph{Shanghai, China}}
+    \begin{itemize}
+        \item \textbf{CodeOCR Pipeline Development:} Spearheaded the engineering of the entire experimental pipeline for CodeOCR, the first systematic study on Multimodal LLMs for code understanding.
+        \item \textbf{Visual Encoding Implementation:} Implemented the visual context compression algorithms, enabling the transformation of code into rendered images. This approach achieved up to \textbf{8x token compression} while preserving semantic integrity.
+        \item \textbf{Experimental Analysis:} Conducted comprehensive evaluations on code completion and clone detection tasks. Demonstrated that visual cues (e.g., syntax highlighting) allow MLLMs to match or outperform text-based models in specific scenarios.
+    \end{itemize}
+    
+    \vspace{6pt}
+    
+    \item 
+    \headerrow
+    {\textbf{Institute of Management Science / Hohai University}}
+    {\textbf{Jun. 2023 – Present}}
+    \headerrow
+    {\emph{Independent Researcher}}
+    {\emph{Nanjing, China}}
+    \begin{itemize}
+        \item \textbf{MDCFN Architecture Design:} Independently proposed the \emph{Multi-Detector Credibility Fusion Network}, a novel framework to detect sophisticated fake reviews (human-written \& AI-generated).
+        \item \textbf{Hierarchical Fusion Mechanism:} Designed a fusion module integrating three specialized detectors (textual/temporal, visual, and relational graph branches) to capture complementary credibility cues at fine-grained and global scales.
+        \item \textbf{Dataset \& SOTA:} Constructed a large-scale annotated multimodal dataset (33k+ reviews, 50k+ images), uniquely augmented with LLM-generated content. Achieved \textbf{98.77\%} accuracy, substantially outperforming state-of-the-art baselines.
+    \end{itemize}
+\end{itemize}
+% --- Projects Section ---
+\cvsection{Selected Projects}
+
+\begin{itemize}
+    \item 
+    \headerrow
+    {\textbf{Simulating Conversations with Fine-Tuned LLMs} $|$ \emph{Python, PyTorch, LoRA}}
+    {\emph{Jun. 2024}}
+    \begin{itemize}
+        \item Fine-tuned \textbf{Qwen-7B-Chat} using LoRA and MLX frameworks on a custom dataset scraped from social media (Rednote) to mimic specific persona-based conversational styles.
+        \item Deployed the model for real-time interaction, winning the \textbf{Excellent Work Award} at the Intel Mini Hackathon.
+    \end{itemize}
+    
+    \vspace{4pt}
+
+    \item 
+    \headerrow
+    {\textbf{E-sports Player Style Clustering Analysis} $|$ \emph{Python, Scikit-learn}}
+    {\emph{Mar. 2022 – Apr. 2022}}
+    \begin{itemize}
+        \item Engineered a data pipeline to crawl 100+ matches of top-ranked players. Extracted 11 key performance indicators to quantify player behavior.
+        \item Applied K-means clustering to categorize playstyles, providing data-driven strategic insights for team composition.
+    \end{itemize}
+\end{itemize}
+
+% --- Professional Experience Section ---
+\cvsection{Professional Experience}
+
+\begin{itemize}
+    \item 
+    \headerrow
+    {\textbf{Inspur Morning Cloud Technologies Co., Ltd.}}
+    {\textbf{Jul. 2022 – Jun. 2024}}
+    \headerrow
+    {\emph{Software Engineer (Python Backend)}}
+    {\emph{Shenzhen, China}}
+    \begin{itemize}
+        \item Developed core modules for a Human Capital Management (HCM) system serving enterprise clients.
+        \item Optimized data import/export efficiency by implementing a tree-traversal algorithm for complex multi-level headers, reducing processing time by 40\%. \todo{how to define 40\%?}
+        \item Awarded the \textbf{R\&D Rising Star Award} for technical innovation and secured one pending patent.
+    \end{itemize}
+\end{itemize}
+
+% --- Skills & Awards ---
+\cvsection{Skills \& Awards}
+
+\begin{itemize}
+    \item \textbf{Technical Skills:} Python, PyTorch, SQL, Docker, Linux, LaTeX, Git, Scikit-learn.
+    \item \textbf{Languages:} English (IELTS 7.0 - Reading 8.5), Cantonese, Mandarin (Native).
+    \item \textbf{Honors:} R\&D Rising Star Award (Inspur, 2022), Excellent Work Award (Intel LLM Challenge, 2024).
+\end{itemize}
+
+\end{document}

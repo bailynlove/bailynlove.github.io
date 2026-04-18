@@ -1,0 +1,129 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import {
+  awards,
+  education,
+  hero,
+  professionalExperience,
+  projects,
+  publications,
+  researchExperience,
+  skills,
+} from "../data/profile";
+const base = import.meta.env.BASE_URL;
+---
+
+<BaseLayout title="Chaoxiang Xie | CV">
+  <main class="cv-page">
+    <div class="cv-shell">
+      <a class="back-link" href={base}>← Back to homepage</a>
+      <header class="cv-header">
+        <div>
+          <p class="eyebrow">Curriculum Vitae</p>
+          <h1>{hero.name} <span>{hero.chineseName}</span></h1>
+          <p>{hero.role}</p>
+          <p>{hero.affiliation} · {hero.location}</p>
+          <p>
+            <a href="mailto:xcxnevergiveup@hhu.edu.cn">xcxnevergiveup@hhu.edu.cn</a>
+            {" · "}
+            <a href="https://github.com/bailynlove" target="_blank" rel="noreferrer">
+              github.com/bailynlove
+            </a>
+          </p>
+        </div>
+        <p class="cv-note">
+          This page is synced to the latest information extracted from
+          <code>resume.tex</code>, so your homepage and CV stay aligned.
+        </p>
+      </header>
+
+      <section class="cv-section">
+        <h2>Profile</h2>
+        <p>{hero.summary}</p>
+        <p>{hero.status}</p>
+      </section>
+
+      <section class="cv-section">
+        <h2>Education</h2>
+        {education.map((item) => (
+          <article class="cv-item">
+            <p class="cv-period">{item.period}</p>
+            <h3>{item.title}</h3>
+            <p class="cv-org">{item.organization} · {item.location}</p>
+            <ul>
+              {item.details.map((detail) => <li>{detail}</li>)}
+            </ul>
+          </article>
+        ))}
+      </section>
+
+      <section class="cv-section">
+        <h2>Research Experience</h2>
+        {researchExperience.map((item) => (
+          <article class="cv-item">
+            <p class="cv-period">{item.period}</p>
+            <h3>{item.title}</h3>
+            <p class="cv-org">{item.organization} · {item.location}</p>
+            {item.advisor && <p>{item.advisor}</p>}
+            <ul>
+              {item.details.map((detail) => <li>{detail}</li>)}
+            </ul>
+          </article>
+        ))}
+      </section>
+
+      <section class="cv-section">
+        <h2>Professional Experience</h2>
+        {professionalExperience.map((item) => (
+          <article class="cv-item">
+            <p class="cv-period">{item.period}</p>
+            <h3>{item.title}</h3>
+            <p class="cv-org">{item.organization} · {item.location}</p>
+            <ul>
+              {item.details.map((detail) => <li>{detail}</li>)}
+            </ul>
+          </article>
+        ))}
+      </section>
+
+      <section class="cv-section">
+        <h2>Publications</h2>
+        {publications.map((paper) => (
+          <article class="cv-item">
+            <p class="cv-period">{paper.year}</p>
+            <h3>{paper.title}</h3>
+            <p>{paper.authors}</p>
+            <p>{paper.venue} · {paper.status}</p>
+          </article>
+        ))}
+      </section>
+
+      <section class="cv-section">
+        <h2>Selected Projects</h2>
+        {projects.map((project) => (
+          <article class="cv-item">
+            <p class="cv-period">{project.period}</p>
+            <h3>{project.title}</h3>
+            <p>{project.stack}</p>
+            <ul>
+              {project.details.map((detail) => <li>{detail}</li>)}
+            </ul>
+          </article>
+        ))}
+      </section>
+
+      <section class="cv-section">
+        <h2>Skills</h2>
+        <p><strong>Technical:</strong> {skills.technical.join(", ")}</p>
+        <p><strong>Languages:</strong> {skills.languages.join(", ")}</p>
+      </section>
+
+      <section class="cv-section">
+        <h2>Awards</h2>
+        <ul>
+          {awards.map((award) => <li>{award}</li>)}
+        </ul>
+      </section>
+    </div>
+  </main>
+</BaseLayout>

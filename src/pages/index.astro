@@ -1,0 +1,271 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import SectionHeader from "../components/SectionHeader.astro";
+import {
+  awards,
+  education,
+  hero,
+  highlights,
+  misc,
+  news,
+  professionalExperience,
+  projects,
+  publications,
+  researchAreas,
+  researchExperience,
+  skills,
+} from "../data/profile";
+const base = import.meta.env.BASE_URL;
+---
+
+<BaseLayout>
+  <div class="page-shell academic-home">
+    <header class="topbar">
+      <a class="brand wordmark" href={base}>Chaoxiang Xie</a>
+      <nav>
+        <a href="#about">About</a>
+        <a href="#publications">Publications</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href={`${base}cv/`}>CV</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="academic-hero" id="about">
+        <aside class="profile-panel">
+          <div class="profile-photo" aria-hidden="true">
+            <img
+              src={`${base}avatar.jpg`}
+              alt="Portrait of Chaoxiang Xie"
+              onerror="this.style.display='none'"
+            />
+            <span>CX</span>
+          </div>
+
+          <div class="profile-panel-body">
+            <h1>{hero.name}</h1>
+            <p class="profile-name-alt">{hero.chineseName}</p>
+            <p class="profile-role">{hero.role}</p>
+            <p class="profile-affiliation">{hero.affiliation}</p>
+            <p class="profile-location">{hero.location}</p>
+
+            <div class="profile-links">
+              {hero.contacts.map((contact) => (
+                <a
+                  href={contact.href}
+                  target={contact.href.startsWith("http") ? "_blank" : undefined}
+                  rel={contact.href.startsWith("http") ? "noreferrer" : undefined}
+                >
+                  {contact.label}
+                </a>
+              ))}
+              <a href={`${base}cv/`}>CV</a>
+            </div>
+
+            <dl class="profile-facts">
+              {highlights.map((item) => (
+                <div>
+                  <dt>{item.label}</dt>
+                  <dd>{item.value}</dd>
+                </div>
+              ))}
+            </dl>
+          </div>
+        </aside>
+
+        <div class="hero-main">
+          <p class="eyebrow">About</p>
+          <h2 class="hero-heading">Multimodal learning, trustworthy NLP, and code understanding.</h2>
+          <p class="hero-summary academic-summary">{hero.summary}</p>
+          <p class="hero-status academic-status">{hero.status}</p>
+
+          <div class="hero-actions academic-actions">
+            <a href="#publications">Selected Publications</a>
+            <a href="#experience">Research Experience</a>
+            <a href="#projects">Projects</a>
+          </div>
+
+          <div class="about-copy">
+            <p>
+              I am currently an M.Sc. student in Library and Information Studies at
+              Hohai University, and I also work with the LLM for Software Engineering Lab
+              at Shanghai Jiao Tong University.
+            </p>
+            <p>
+              My recent research focuses on robust multimodal review credibility assessment
+              and the effectiveness of vision-language models for code understanding. I am
+              particularly interested in combining strong empirical evaluation with practical
+              engineering systems.
+            </p>
+          </div>
+
+          <section class="news-block" aria-labelledby="news-title">
+            <div class="subsection-header">
+              <h3 id="news-title">News</h3>
+              <a href={`${base}cv/`}>Full CV</a>
+            </div>
+            <ul class="news-list">
+              {news.map((item) => (
+                <li>
+                  <span class="news-date">{item.date}</span>
+                  <span>{item.text}</span>
+                </li>
+              ))}
+            </ul>
+          </section>
+        </div>
+      </section>
+
+      <section id="research" class="section academic-section">
+        <SectionHeader
+          eyebrow="Research Interests"
+          title="Current research interests"
+          intro="My work sits at the intersection of multimodal machine learning, information credibility, and software engineering."
+        />
+
+        <div class="interest-list">
+          {researchAreas.map((area) => (
+            <article class="interest-item">
+              <h3>{area.title}</h3>
+              <p>{area.description}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section id="publications" class="section academic-section">
+        <SectionHeader
+          eyebrow="Publications"
+          title="Selected publications"
+          intro="Selected publications and ongoing work."
+        />
+
+        <div class="publication-stack">
+          {publications.map((paper) => (
+            <article class="publication-entry">
+              <div class="publication-entry-main">
+                <h3>{paper.title}</h3>
+                <p class="publication-authors">{paper.authors}</p>
+                <p class="publication-venue">{paper.venue} · {paper.year}</p>
+                <p>{paper.description}</p>
+                {paper.links.length > 0 && (
+                  <div class="publication-links">
+                    {paper.links.map((link) => (
+                      <a href={link.href} target="_blank" rel="noreferrer">
+                        {link.label}
+                      </a>
+                    ))}
+                  </div>
+                )}
+              </div>
+              <div class="publication-badge">{paper.status}</div>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section id="experience" class="section academic-section">
+        <SectionHeader
+          eyebrow="Experience"
+          title="Research and professional experience"
+          intro="Research-first, with industry experience that informs implementation and systems thinking."
+        />
+
+        <div class="experience-columns">
+          <div>
+            <h3 class="column-title">Research</h3>
+            <div class="stack-list">
+              {researchExperience.map((item) => (
+                <article class="timeline-card card detail-card">
+                  <div class="detail-meta">
+                    <span>{item.period}</span>
+                    <span>{item.location}</span>
+                  </div>
+                  <h3>{item.title}</h3>
+                  <p class="detail-org">{item.organization}</p>
+                  {item.advisor && <p class="detail-note">{item.advisor}</p>}
+                  <ul>
+                    {item.details.map((detail) => <li>{detail}</li>)}
+                  </ul>
+                </article>
+              ))}
+            </div>
+          </div>
+
+          <div>
+            <h3 class="column-title">Education & Industry</h3>
+            <div class="stack-list">
+              {education.map((item) => (
+                <article class="timeline-card card detail-card">
+                  <div class="detail-meta">
+                    <span>{item.period}</span>
+                    <span>{item.location}</span>
+                  </div>
+                  <h3>{item.title}</h3>
+                  <p class="detail-org">{item.organization}</p>
+                  <ul>
+                    {item.details.map((detail) => <li>{detail}</li>)}
+                  </ul>
+                </article>
+              ))}
+
+              {professionalExperience.map((item) => (
+                <article class="timeline-card card detail-card">
+                  <div class="detail-meta">
+                    <span>{item.period}</span>
+                    <span>{item.location}</span>
+                  </div>
+                  <h3>{item.title}</h3>
+                  <p class="detail-org">{item.organization}</p>
+                  <ul>
+                    {item.details.map((detail) => <li>{detail}</li>)}
+                  </ul>
+                </article>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="projects" class="section academic-section">
+        <SectionHeader
+          eyebrow="Projects"
+          title="Selected projects"
+          intro="A few implementation-heavy projects that reflect both experimentation and execution."
+        />
+
+        <div class="project-grid">
+          {projects.map((project) => (
+            <article class="project-card">
+              <p class="project-meta">{project.period} · {project.stack}</p>
+              <h3>{project.title}</h3>
+              <ul>
+                {project.details.map((detail) => <li>{detail}</li>)}
+              </ul>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section class="section academic-section footer-panels">
+        <div class="card misc-card">
+          <h3 class="panel-title">Skills</h3>
+          <p><strong>Technical:</strong> {skills.technical.join(", ")}</p>
+          <p><strong>Languages:</strong> {skills.languages.join(", ")}</p>
+        </div>
+
+        <div class="card misc-card">
+          <h3 class="panel-title">Awards</h3>
+          {awards.map((award) => <p>{award}</p>)}
+        </div>
+
+        <div class="card misc-card">
+          <h3 class="panel-title">Misc</h3>
+          <p><strong>Hometown:</strong> {misc.hometown}</p>
+          <p><strong>Interests:</strong> {misc.interests.join(", ")}</p>
+        </div>
+      </section>
+    </main>
+  </div>
+</BaseLayout>
