@@ -156,14 +156,7 @@ main,
   width: 100%;
   height: 100%;
   object-fit: cover;
-}
-
-.profile-photo span {
-  position: relative;
-  z-index: 0;
-  font-family: "Source Serif 4", Georgia, serif;
-  font-size: 4.2rem;
-  letter-spacing: 0.08em;
+  object-position: center 18%;
 }
 
 .profile-panel-body {
