@@ -397,6 +397,12 @@ main,
   margin: 0.2rem 0;
 }
 
+.publication-author-notes {
+  margin: 0.15rem 0 0.35rem;
+  font-size: 0.94rem;
+  color: var(--accent);
+}
+
 .publication-badge {
   padding: 0.45rem 0.7rem;
   border-radius: 999px;

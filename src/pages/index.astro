@@ -146,6 +146,9 @@ const base = import.meta.env.BASE_URL;
               <div class="publication-entry-main">
                 <h3>{paper.title}</h3>
                 <p class="publication-authors">{paper.authors}</p>
+                {paper.author_notes && (
+                  <p class="publication-author-notes">{paper.author_notes}</p>
+                )}
                 <p class="publication-venue">{paper.venue} · {paper.year}</p>
                 <p>{paper.description}</p>
                 {paper.links.length > 0 && (

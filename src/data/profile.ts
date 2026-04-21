@@ -81,7 +81,11 @@ export const researchAreas = [
 
 export const news = [
   {
-    date: "2026",
+    date: "2026-04-21",
+    text: "ClassEval-Pro was accepted to AIWare 2026.",
+  },
+  {
+    date: "2026-04-17",
     text: "CodeOCR was accepted to ISSTA 2026.",
   },
   {
@@ -123,7 +127,7 @@ export const education = [
 
 export const researchExperience = [
   {
-    period: "Oct. 2024 - Present",
+    period: "Oct. 2025 - Present",
     title: "Research Assistant",
     organization:
       "LLM for Software Engineering Lab (LLMSE), Shanghai Jiao Tong University",
@@ -136,7 +140,7 @@ export const researchExperience = [
     ],
   },
   {
-    period: "Jun. 2023 - Present",
+    period: "Jun. 2024 - Present",
     title: "Independent Researcher",
     organization: "Institute of Management Science, Hohai University",
     location: "Nanjing, China",
@@ -165,17 +169,6 @@ export const professionalExperience = [
 export const publications = [
   {
     title:
-      "Multi-Detector Credibility Fusion Network: A Neural Architecture for Robust Multimodal Review Credibility Assessment",
-    authors: "Chaoxiang Xie, Ming Li",
-    venue: "International Journal of Intelligent Systems",
-    year: "2026",
-    description:
-      "Presents MDCFN, a multimodal architecture for robust review credibility assessment across textual, visual, and relational signals.",
-    links: [],
-    status: "Under Review",
-  },
-  {
-    title:
       "CodeOCR: On the Effectiveness of Vision Language Models in Code Understanding",
     authors:
       "Yuling Shi, Chaoxiang Xie, Zhensu Sun, Yeheng Chen, Chenxu Zhang, Longfei Yun, Chengcheng Wan, Hongyu Zhang, David Lo, Xiaodong Gu",
@@ -190,6 +183,28 @@ export const publications = [
       },
     ],
     status: "Conference",
+  },
+  {
+    title: "ClassEval-Pro: A Cross-Domain Benchmark for Class-Level Code Generation",
+    authors:
+      "Yeheng Chen*, Chaoxiang Xie*, Yuling Shi, Wenhao Zeng, Yongpan Wang, Hongyu Zhang, Xiaodong Gu",
+    author_notes: "* Equal contribution / co-first authors (Yeheng Chen and Chaoxiang Xie)",
+    venue: "ACM AIWare 2026 Data and Benchmark Track Submission",
+    year: "2026",
+    description: "Introduces ClassEval-Pro, a benchmark of 300 class-level code generation tasks across 11 domains, built through an automated three-stage pipeline with complexity enhancement, cross-domain class composition, and real-world GitHub code integration. Each task is validated by an LLM Judge Ensemble and test suites with over 90% line coverage. Experiments on five frontier LLMs under five generation strategies show that the best model reaches only 45.6% class-level Pass@1, while error analysis highlights logic and dependency errors as the main bottlenecks.",
+    links: [],
+    status: "Conference",
+  },
+  {
+    title:
+      "Multi-Detector Credibility Fusion Network: A Neural Architecture for Robust Multimodal Review Credibility Assessment",
+    authors: "Chaoxiang Xie, Ming Li",
+    venue: "International Journal of Intelligent Systems",
+    year: "2026",
+    description:
+      "Presents MDCFN, a multimodal architecture for robust review credibility assessment across textual, visual, and relational signals.",
+    links: [],
+    status: "Under Review",
   },
 ];
 
