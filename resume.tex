@@ -7,6 +7,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{mathptmx} % Times New Roman style
+\usepackage{graphicx}
 
 % Essential packages
 \usepackage{enumitem}
@@ -52,14 +53,26 @@
 \begin{document}
 
 % --- Header ---
-\begin{center}
-	{\Huge \textsc{Chaoxiang Xie}}\\ \vspace{5pt}
-	Shanghai, China \\ \vspace{3pt}
-	\small
-	\raisebox{-0.1\height}{\faPhone} \ (+86) 152-9577-7121 \ \ \textbullet \ \ 
-	\raisebox{-0.1\height}{\faEnvelope} \ \href{mailto:xcxnevergiveup@hhu.edu.cn}{xcxnevergiveup@hhu.edu.cn} \ \ \textbullet \ \ 
-	\raisebox{-0.1\height}{\faGithub} \ \href{https://github.com/bailynlove}{github.com/bailynlove}
-\end{center}
+\noindent
+\begin{minipage}[c]{0.78\textwidth}
+    \begin{center}
+        {\Huge \textsc{Chaoxiang Xie}}\\ \vspace{5pt}
+        Shanghai, China \\ \vspace{3pt}
+        \small
+        \raisebox{-0.1\height}{\faPhone} \ (+86) 152-9577-7121 \ \ \textbullet \ \ 
+        \raisebox{-0.1\height}{\faEnvelope} \ \href{mailto:xcxnevergiveup@hhu.edu.cn}{xcxnevergiveup@hhu.edu.cn} \ \ \textbullet \ \ 
+        \raisebox{-0.1\height}{\faGithub} \ \href{https://github.com/bailynlove}{github.com/bailynlove}\ \ \textbullet \ \ 
+        \\ \vspace{3pt}
+        \raisebox{-0.1\height}{\faHome} \ \href{https://bailynlove.github.io/}{bailynlove.github.io}
+        \\ \vspace{4pt}
+        \textbf{Research Interests:} Multimodal Learning, Natural Language Processing
+    \end{center}
+\end{minipage}
+\hfill
+\begin{minipage}[c]{0.18\textwidth}
+    \centering
+    \includegraphics[width=2.5cm,height=3.2cm,keepaspectratio]{photo.jpg}
+\end{minipage}
 
 % --- Education Section ---
 \cvsection{Education}
@@ -95,9 +108,12 @@
 \cvsection{Publications}
 
 \begin{itemize}
-    \item \textbf{C. Xie}, M. Li. ``Multi-Detector Credibility Fusion Network: A Neural Architecture for Robust Multimodal Review Credibility Assessment.'' \emph{International Journal of Intelligent Systems}. (Under Review).
+    \item Y. Chen\textsuperscript{*}, \textbf{C. Xie}\textsuperscript{*}, Y. Shi, W. Zeng, Y. Wang, H. Zhang, X. Gu. ``ClassEval-Pro: A Cross-Domain Benchmark for Class-Level Code Generation.'' In \emph{Proceedings of AIware 2026, Benchmark \& Dataset Track}. 
     \item Y. Shi, \textbf{C. Xie}, Z. Sun, Y. Chen, C. Zhang, L. Yun, C. Wan, H. Zhang, D. Lo, X. Gu. ``CodeOCR: On the Effectiveness of Vision Language Models in Code Understanding.'' In \emph{Proceedings of ISSTA 2026}.
+    \item \textbf{C. Xie}, M. Li. ``Multi-Detector Credibility Fusion Network: A Neural Architecture for Robust Multimodal Review Credibility Assessment.'' \emph{International Journal of Intelligent Systems}. (Under Review).
 \end{itemize}
+\vspace{-0.6em}
+{\footnotesize \noindent\textsuperscript{*}Equal contribution.}
 
 % --- Research Experience Section ---
 \cvsection{Research Experience}
@@ -106,29 +122,33 @@
     \item 
     \headerrow
     {\textbf{LLM for Software Engineering Lab (LLMSE) / Shanghai Jiao Tong University}}
-    {\textbf{Oct. 2024 – Present}} 
+    {\textbf{Oct. 2024 -- Present}} 
     \headerrow
     {\emph{Research Assistant (Advisor: Prof. X. Gu)}}
     {\emph{Shanghai, China}}
     \begin{itemize}
-        \item \textbf{CodeOCR Pipeline Development:} Spearheaded the engineering of the entire experimental pipeline for CodeOCR, the first systematic study on Multimodal LLMs for code understanding.
-        \item \textbf{Visual Encoding Implementation:} Implemented the visual context compression algorithms, enabling the transformation of code into rendered images. This approach achieved up to \textbf{8x token compression} while preserving semantic integrity.
-        \item \textbf{Experimental Analysis:} Conducted comprehensive evaluations on code completion and clone detection tasks. Demonstrated that visual cues (e.g., syntax highlighting) allow MLLMs to match or outperform text-based models in specific scenarios.
+        \item \textbf{CodeOCR Pipeline Development:} Spearheaded the engineering of the experimental pipeline for CodeOCR, the first systematic study on multimodal LLMs for code understanding.
+        \item \textbf{Visual Code Representation:} Implemented visual context compression algorithms that transform source code into rendered images, achieving up to \textbf{8x token compression} while preserving key semantic and structural information.
+        \item \textbf{ClassEval-Pro Benchmark:} Contributed to \emph{ClassEval-Pro}, a cross-domain benchmark for class-level code generation, targeting compositional code creation between function-level synthesis and repository-level modification. Participated in benchmark construction, evaluation design, and analysis of model performance across multiple generation strategies.
+        \item \textbf{Experimental Analysis:} Conducted comprehensive evaluations on code completion, clone detection, and class-level code generation tasks, analysing how model capability, visual cues, and generation strategies affect code understanding and synthesis performance.
+        \item \textbf{Multimodal Coding Agent:} Investigating agentic frameworks that can generate runnable code from UI design images and natural-language functional requirements, bridging visual interface understanding with end-to-end software implementation.
+        \item \textbf{Image-assisted Code Intelligence:} Studying how image-based representations can support upstream and downstream code tasks, including fine-tuning multimodal models to develop more effective visual-assisted paradigms for code generation, understanding, and reasoning.
     \end{itemize}
     
-    \vspace{6pt}
+    \vspace{8pt}
     
     \item 
     \headerrow
     {\textbf{Institute of Management Science / Hohai University}}
-    {\textbf{Jun. 2023 – Present}}
+    {\textbf{Jun. 2023 -- Present}}
     \headerrow
     {\emph{Independent Researcher}}
     {\emph{Nanjing, China}}
     \begin{itemize}
-        \item \textbf{MDCFN Architecture Design:} Independently proposed the \emph{Multi-Detector Credibility Fusion Network}, a novel framework to detect sophisticated fake reviews (human-written \& AI-generated).
-        \item \textbf{Hierarchical Fusion Mechanism:} Designed a fusion module integrating three specialized detectors (textual/temporal, visual, and relational graph branches) to capture complementary credibility cues at fine-grained and global scales.
-        \item \textbf{Dataset \& SOTA:} Constructed a large-scale annotated multimodal dataset (33k+ reviews, 50k+ images), uniquely augmented with LLM-generated content. Achieved \textbf{98.77\%} accuracy, substantially outperforming state-of-the-art baselines.
+        \item \textbf{MDCFN Architecture Design:} Independently proposed the \emph{Multi-Detector Credibility Fusion Network}, a novel framework for detecting sophisticated fake reviews, including both human-written and AI-generated deceptive content.
+        \item \textbf{Hierarchical Fusion Mechanism:} Designed a fusion module integrating three specialised detectors, covering textual/temporal, visual, and relational graph branches, to capture complementary credibility cues at both fine-grained and global levels.
+        \item \textbf{Dataset \& Evaluation:} Constructed a large-scale annotated multimodal dataset with 33k+ reviews and 50k+ images, augmented with LLM-generated content; achieved \textbf{98.77\%} accuracy and substantially outperformed state-of-the-art baselines.
+        \item \textbf{VLM-based Construction Site Inspection:} Conducted research on using vision-language models to assess whether vehicles meet washing standards in smart construction-site scenarios. Optimised VLM recognition and chain-of-thought reasoning to localise vehicle-washing regions, judge compliance with washing criteria, and structure inspection records for agent-based natural-language querying by managers.
     \end{itemize}
 \end{itemize}
 % --- Projects Section ---
@@ -163,14 +183,16 @@
     \item 
     \headerrow
     {\textbf{Inspur Morning Cloud Technologies Co., Ltd.}}
-    {\textbf{Jul. 2022 – Jun. 2024}}
+    {\textbf{Jul. 2022 -- Jun. 2024}}
     \headerrow
-    {\emph{Software Engineer (Python Backend)}}
+    {\emph{Software Engineer (Python Backend), Basic Services Division}}
     {\emph{Shenzhen, China}}
     \begin{itemize}
-        \item Developed core modules for a Human Capital Management (HCM) system serving enterprise clients.
-        \item Optimized data import/export efficiency by implementing a tree-traversal algorithm for complex multi-level headers, reducing processing time by 40\%. \todo{how to define 40\%?}
-        \item Awarded the \textbf{R\&D Rising Star Award} for technical innovation and secured one pending patent.
+        \item Developed and maintained backend modules for an enterprise Human Capital Management (HCM) system, including data import/export, work alerts, data push, and single sign-on services.
+        \item Designed multi-model data import/export workflows, enabling concurrent data processing and cross-model data association for enterprise business scenarios.
+        \item Implemented a tree-traversal-based export module to support complex tables with multi-level headers and structured data relationships.
+        \item Built a configurable work-alert module with rule-based data monitoring, notification targets, message templates, notification channels, and scheduled delivery.
+        \item Delivered additional platform features, including message withdrawal, data-push conflict prevention, and permission verification during data import; received the \textbf{R\&D Rising Star Award} and contributed to one pending patent.
     \end{itemize}
 \end{itemize}
 

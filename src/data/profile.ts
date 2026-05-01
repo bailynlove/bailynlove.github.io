@@ -1,7 +1,7 @@
 export const siteMeta = {
   title: "Chaoxiang Xie | Academic Homepage",
   description:
-    "Academic homepage for Chaoxiang Xie, M.Sc. student at Hohai University and research assistant at LLMSE, Shanghai Jiao Tong University.",
+    "Academic homepage for Chaoxiang Xie, M.Sc. student at Hohai University working on multimodal learning, NLP, and code intelligence.",
 };
 
 export const hero = {
@@ -12,15 +12,15 @@ export const hero = {
     "Hohai University · Research Assistant at LLMSE, Shanghai Jiao Tong University",
   location: "Shanghai, China",
   summary:
-    "I work on multimodal learning, trustworthy NLP, and code understanding, with current projects spanning fake review detection and multimodal large models for software engineering.",
+    "My research interests lie in multimodal learning and natural language processing for software engineering.",
   status:
-    "My recent work includes MDCFN for robust multimodal review credibility assessment and CodeOCR, a study of vision-language models for code understanding.",
+    "Currently, I focus on multimodal coding agents and image-assisted code intelligence, especially how visual interfaces and rendered code images can support code generation, understanding, and reasoning.",
   tags: [
     "Multimodal Learning",
-    "Trustworthy NLP",
-    "Code Understanding",
+    "Natural Language Processing",
+    "Multimodal Coding Agent",
+    "Image-assisted Code Intelligence",
     "Software Engineering",
-    "Data Mining",
   ],
   links: [
     { label: "CV", href: "cv/" },
@@ -45,7 +45,7 @@ export const hero = {
 export const highlights = [
   {
     label: "Current Research",
-    value: "Multimodal fake review detection",
+    value: "Multimodal coding agents",
   },
   {
     label: "Lab",
@@ -63,19 +63,19 @@ export const highlights = [
 
 export const researchAreas = [
   {
-    title: "Review Credibility Assessment",
+    title: "Multimodal Coding Agent",
     description:
-      "Building robust multimodal models that detect both human-written and AI-generated fake reviews using textual, visual, temporal, and relational cues.",
+      "Investigating agentic frameworks that generate runnable code from UI design images and natural-language functional requirements, bridging visual interface understanding with end-to-end software implementation.",
+  },
+  {
+    title: "Image-assisted Code Intelligence",
+    description:
+      "Studying how image-based code representations can support code generation, understanding, and reasoning, including fine-tuning multimodal models for more effective visual-assisted code intelligence.",
   },
   {
     title: "Multimodal Code Understanding",
     description:
-      "Exploring whether rendered code images and visual cues can let multimodal large models match or exceed text-based baselines in software engineering tasks.",
-  },
-  {
-    title: "Applied Data Mining",
-    description:
-      "Using machine learning and information retrieval methods to study practical information systems problems with an emphasis on reliable evaluation and strong engineering execution.",
+      "Building and evaluating visual code representations, benchmarks, and experimental pipelines for multimodal LLMs in software engineering tasks.",
   },
 ];
 
@@ -127,20 +127,23 @@ export const education = [
 
 export const researchExperience = [
   {
-    period: "Oct. 2025 - Present",
+    period: "Oct. 2024 - Present",
     title: "Research Assistant",
     organization:
       "LLM for Software Engineering Lab (LLMSE), Shanghai Jiao Tong University",
     location: "Shanghai, China",
     advisor: "Advisor: Prof. Xiaodong Gu",
     details: [
-      "Led engineering for the full CodeOCR experimental pipeline, a systematic study of multimodal LLMs for code understanding.",
-      "Implemented visual context compression that renders code into images and achieved up to 8x token compression while preserving semantic integrity.",
-      "Ran evaluations on code completion and clone detection, showing that visual cues such as syntax highlighting can match or outperform text-only baselines in specific settings.",
+      "Spearheaded engineering for the CodeOCR experimental pipeline, a systematic study of multimodal LLMs for code understanding.",
+      "Implemented visual code representation methods that transform source code into rendered images, achieving up to 8x token compression while preserving semantic and structural information.",
+      "Contributed to ClassEval-Pro, a cross-domain benchmark for class-level code generation, including benchmark construction, evaluation design, and analysis across multiple generation strategies.",
+      "Conducted evaluations on code completion, clone detection, and class-level code generation tasks, analyzing how model capability, visual cues, and generation strategies affect code understanding and synthesis performance.",
+      "Investigating multimodal coding agents that generate runnable code from UI design images and natural-language functional requirements.",
+      "Studying image-assisted code intelligence, including fine-tuning multimodal models to support visual-assisted code generation, understanding, and reasoning.",
     ],
   },
   {
-    period: "Jun. 2024 - Present",
+    period: "Jun. 2023 - Present",
     title: "Independent Researcher",
     organization: "Institute of Management Science, Hohai University",
     location: "Nanjing, China",
@@ -148,6 +151,7 @@ export const researchExperience = [
       "Proposed the Multi-Detector Credibility Fusion Network for detecting sophisticated fake reviews, including human-written and AI-generated content.",
       "Designed a hierarchical fusion mechanism combining textual-temporal, visual, and relational graph branches for complementary credibility cues.",
       "Built a large annotated multimodal dataset with 33k+ reviews and 50k+ images, including LLM-generated content, and achieved 98.77% accuracy beyond prior baselines.",
+      "Conducted VLM-based construction-site inspection research for vehicle-washing compliance, using vision-language recognition and chain-of-thought reasoning to localize inspection regions, judge compliance, and structure records for agent-based querying.",
     ],
   },
 ];
@@ -159,9 +163,11 @@ export const professionalExperience = [
     organization: "Inspur Morning Cloud Technologies Co., Ltd.",
     location: "Shenzhen, China",
     details: [
-      "Developed core modules for a Human Capital Management system serving enterprise clients.",
-      "Improved complex import and export workflows by implementing tree-traversal logic for multi-level headers, reducing processing time substantially.",
-      "Received the R&D Rising Star Award for technical innovation and secured one pending patent.",
+      "Developed and maintained backend modules for an enterprise Human Capital Management system, including data import/export, work alerts, data push, and single sign-on services.",
+      "Designed multi-model data import/export workflows for concurrent data processing and cross-model data association in enterprise business scenarios.",
+      "Implemented a tree-traversal export module for complex tables with multi-level headers and structured data relationships.",
+      "Built a configurable work-alert module with rule-based monitoring, notification targets, message templates, channels, and scheduled delivery.",
+      "Delivered additional platform features including message withdrawal, data-push conflict prevention, and permission verification during data import; received the R&D Rising Star Award and contributed to one pending patent.",
     ],
   },
 ];
@@ -189,7 +195,7 @@ export const publications = [
     authors:
       "Yeheng Chen*, Chaoxiang Xie*, Yuling Shi, Wenhao Zeng, Yongpan Wang, Hongyu Zhang, Xiaodong Gu",
     author_notes: "* Equal contribution / co-first authors (Yeheng Chen and Chaoxiang Xie)",
-    venue: "ACM AIWare 2026 Data and Benchmark Track Submission",
+    venue: "Proceedings of AIware 2026, Benchmark & Dataset Track",
     year: "2026",
     description: "Introduces ClassEval-Pro, a benchmark of 300 class-level code generation tasks across 11 domains, built through an automated three-stage pipeline with complexity enhancement, cross-domain class composition, and real-world GitHub code integration. Each task is validated by an LLM Judge Ensemble and test suites with over 90% line coverage. Experiments on five frontier LLMs under five generation strategies show that the best model reaches only 45.6% class-level Pass@1, while error analysis highlights logic and dependency errors as the main bottlenecks.",
     links: [],
