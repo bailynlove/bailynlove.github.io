@@ -20,6 +20,12 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 6rem;
+}
+
+a:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
 }
 
 body {
@@ -237,6 +243,30 @@ main,
   line-height: 1.05;
 }
 
+.focus-subtitle {
+  margin: 0 0 1.5rem;
+  font-family: "Source Serif 4", Georgia, serif;
+  font-size: clamp(1.2rem, 2vw, 1.65rem);
+  color: var(--accent);
+}
+
+.research-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding: 0;
+  margin: 1.2rem 0;
+  list-style: none;
+}
+
+.research-tags li {
+  padding: 0.3rem 0.7rem;
+  border-radius: 6px;
+  background: var(--accent-soft);
+  color: var(--accent-strong);
+  font-size: 0.84rem;
+}
+
 .academic-summary {
   max-width: 52rem;
   margin: 0 0 0.8rem;
@@ -297,7 +327,7 @@ main,
 
 .news-list li {
   display: grid;
-  grid-template-columns: 4rem minmax(0, 1fr);
+  grid-template-columns: 6.2rem minmax(0, 1fr);
   gap: 0.9rem;
   padding-bottom: 0.8rem;
   border-bottom: 1px solid #edf1f6;
@@ -558,6 +588,20 @@ main,
   .cv-header {
     grid-template-columns: 1fr;
   }
+
+  .profile-panel {
+    display: grid;
+    grid-template-columns: minmax(160px, 0.7fr) minmax(0, 1fr);
+  }
+
+  .profile-photo {
+    aspect-ratio: auto;
+    min-height: 240px;
+  }
+
+  .profile-facts {
+    display: none;
+  }
 }
 
 @media (max-width: 720px) {
@@ -583,5 +627,26 @@ main,
 
   .hero-heading {
     font-size: 2.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .profile-panel {
+    grid-template-columns: 1fr;
+  }
+
+  .profile-photo {
+    aspect-ratio: 4 / 3;
+    min-height: 0;
+  }
+
+  .profile-photo img {
+    object-position: center 30%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
   }
 }

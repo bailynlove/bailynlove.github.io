@@ -23,13 +23,11 @@ const base = import.meta.env.BASE_URL;
           <h1>{hero.name} <span>{hero.chineseName}</span></h1>
           <p>{hero.role}</p>
           <p>{hero.affiliation} · {hero.location}</p>
-          <p>
-            <a href="mailto:xcxnevergiveup@hhu.edu.cn">xcxnevergiveup@hhu.edu.cn</a>
-            {" · "}
-            <a href="https://github.com/bailynlove" target="_blank" rel="noreferrer">
-              github.com/bailynlove
-            </a>
-          </p>
+          <div class="profile-links">
+            {hero.contacts.map((contact) => (
+              <a href={contact.href} target={contact.href.startsWith("http") ? "_blank" : undefined} rel={contact.href.startsWith("http") ? "noreferrer" : undefined}>{contact.value}</a>
+            ))}
+          </div>
         </div>
       </header>
 
@@ -45,10 +43,10 @@ const base = import.meta.env.BASE_URL;
           <article class="cv-item">
             <p class="cv-period">{item.period}</p>
             <h3>{item.title}</h3>
-            <p class="cv-org">{item.organization} · {item.location}</p>
-            <ul>
-              {item.details.map((detail) => <li>{detail}</li>)}
-            </ul>
+            <p class="cv-org">{item.organization}{item.location && ` · ${item.location}`}</p>
+            {item.details.length > 0 && (
+                    <ul>{item.details.map((detail) => <li>{detail}</li>)}</ul>
+                  )}
           </article>
         ))}
       </section>
@@ -59,11 +57,11 @@ const base = import.meta.env.BASE_URL;
           <article class="cv-item">
             <p class="cv-period">{item.period}</p>
             <h3>{item.title}</h3>
-            <p class="cv-org">{item.organization} · {item.location}</p>
+            <p class="cv-org">{item.organization}{item.location && ` · ${item.location}`}</p>
             {item.advisor && <p>{item.advisor}</p>}
-            <ul>
-              {item.details.map((detail) => <li>{detail}</li>)}
-            </ul>
+            {item.details.length > 0 && (
+                    <ul>{item.details.map((detail) => <li>{detail}</li>)}</ul>
+                  )}
           </article>
         ))}
       </section>
@@ -74,10 +72,10 @@ const base = import.meta.env.BASE_URL;
           <article class="cv-item">
             <p class="cv-period">{item.period}</p>
             <h3>{item.title}</h3>
-            <p class="cv-org">{item.organization} · {item.location}</p>
-            <ul>
-              {item.details.map((detail) => <li>{detail}</li>)}
-            </ul>
+            <p class="cv-org">{item.organization}{item.location && ` · ${item.location}`}</p>
+            {item.details.length > 0 && (
+                    <ul>{item.details.map((detail) => <li>{detail}</li>)}</ul>
+                  )}
           </article>
         ))}
       </section>
@@ -99,12 +97,17 @@ const base = import.meta.env.BASE_URL;
         <h2>Selected Projects</h2>
         {projects.map((project) => (
           <article class="cv-item">
-            <p class="cv-period">{project.period}</p>
+            <p class="cv-period">{project.status}</p>
             <h3>{project.title}</h3>
             <p>{project.stack}</p>
             <ul>
               {project.details.map((detail) => <li>{detail}</li>)}
             </ul>
+            {project.links.length > 0 && (
+              <div class="publication-links">
+                {project.links.map((link) => <a href={link.href} target="_blank" rel="noreferrer">{link.label}</a>)}
+              </div>
+            )}
           </article>
         ))}
       </section>
@@ -112,6 +115,7 @@ const base = import.meta.env.BASE_URL;
       <section class="cv-section">
         <h2>Skills</h2>
         <p><strong>Technical:</strong> {skills.technical.join(", ")}</p>
+        <p><strong>Agent engineering:</strong> {skills.agents.join(", ")}</p>
         <p><strong>Languages:</strong> {skills.languages.join(", ")}</p>
       </section>
 

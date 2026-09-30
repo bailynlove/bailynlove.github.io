@@ -24,17 +24,17 @@ const base = import.meta.env.BASE_URL;
       <a class="brand wordmark" href={base}>Chaoxiang Xie</a>
       <nav>
         <a href="#about">About</a>
+        <a href="#research">Research</a>
         <a href="#publications">Publications</a>
         <a href="#experience">Experience</a>
         <a href="#projects">Projects</a>
-        <a href={`${base}CV__For_PhD_.pdf`} target="_blank" rel="noreferrer">CV</a>
       </nav>
     </header>
 
     <main>
       <section class="academic-hero" id="about">
         <aside class="profile-panel">
-          <div class="profile-photo" aria-hidden="true">
+          <div class="profile-photo">
             <img
               src={`${base}avatar.jpg`}
               alt="Portrait of Chaoxiang Xie"
@@ -59,7 +59,6 @@ const base = import.meta.env.BASE_URL;
                   {contact.label}
                 </a>
               ))}
-              <a href={`${base}CV__For_PhD_.pdf`} target="_blank" rel="noreferrer">CV</a>
             </div>
 
             <dl class="profile-facts">
@@ -74,10 +73,15 @@ const base = import.meta.env.BASE_URL;
         </aside>
 
         <div class="hero-main">
-          <p class="eyebrow">About</p>
-          <h2 class="hero-heading">Research Interests: Multimodal Learning and Natural Language Processing.</h2>
+          <p class="eyebrow">Current research focus</p>
+          <h2 class="hero-heading">{hero.focus}</h2>
+          <p class="focus-subtitle">Evaluating AI. Understanding its limits.</p>
           <p class="hero-summary academic-summary">{hero.summary}</p>
           <p class="hero-status academic-status">{hero.status}</p>
+
+          <ul class="research-tags" aria-label="Research interests">
+            {hero.tags.map((tag) => <li>{tag}</li>)}
+          </ul>
 
           <div class="hero-actions academic-actions">
             <a href="#publications">Selected Publications</a>
@@ -91,16 +95,11 @@ const base = import.meta.env.BASE_URL;
               Hohai University, and I also work with the LLM for Software Engineering Lab
               at Shanghai Jiao Tong University.
             </p>
-            <p>
-              I am particularly interested in connecting visual interface understanding,
-              code representation, and end-to-end software implementation.
-            </p>
           </div>
 
           <section class="news-block" aria-labelledby="news-title">
             <div class="subsection-header">
               <h3 id="news-title">News</h3>
-              <a href={`${base}CV__For_PhD_.pdf`} target="_blank" rel="noreferrer">Full CV</a>
             </div>
             <ul class="news-list">
               {news.map((item) => (
@@ -116,9 +115,9 @@ const base = import.meta.env.BASE_URL;
 
       <section id="research" class="section academic-section">
         <SectionHeader
-          eyebrow="Research Interests"
-          title="Current research interests"
-          intro="My work sits at the intersection of multimodal machine learning, natural language processing, and software engineering."
+          eyebrow="Research"
+          title="Research focus and background"
+          intro="I study trustworthy AI, building on my work in model evaluation and multimodal learning."
         />
 
         <div class="interest-list">
@@ -169,7 +168,7 @@ const base = import.meta.env.BASE_URL;
         <SectionHeader
           eyebrow="Experience"
           title="Research and professional experience"
-          intro="Research-first, with industry experience that informs implementation and systems thinking."
+          intro="My research experience and background in Python backend engineering."
         />
 
         <div class="experience-columns">
@@ -185,9 +184,9 @@ const base = import.meta.env.BASE_URL;
                   <h3>{item.title}</h3>
                   <p class="detail-org">{item.organization}</p>
                   {item.advisor && <p class="detail-note">{item.advisor}</p>}
-                  <ul>
-                    {item.details.map((detail) => <li>{detail}</li>)}
-                  </ul>
+                  {item.details.length > 0 && (
+                    <ul>{item.details.map((detail) => <li>{detail}</li>)}</ul>
+                  )}
                 </article>
               ))}
             </div>
@@ -204,9 +203,9 @@ const base = import.meta.env.BASE_URL;
                   </div>
                   <h3>{item.title}</h3>
                   <p class="detail-org">{item.organization}</p>
-                  <ul>
-                    {item.details.map((detail) => <li>{detail}</li>)}
-                  </ul>
+                  {item.details.length > 0 && (
+                    <ul>{item.details.map((detail) => <li>{detail}</li>)}</ul>
+                  )}
                 </article>
               ))}
 
@@ -218,9 +217,9 @@ const base = import.meta.env.BASE_URL;
                   </div>
                   <h3>{item.title}</h3>
                   <p class="detail-org">{item.organization}</p>
-                  <ul>
-                    {item.details.map((detail) => <li>{detail}</li>)}
-                  </ul>
+                  {item.details.length > 0 && (
+                    <ul>{item.details.map((detail) => <li>{detail}</li>)}</ul>
+                  )}
                 </article>
               ))}
             </div>
@@ -232,17 +231,22 @@ const base = import.meta.env.BASE_URL;
         <SectionHeader
           eyebrow="Projects"
           title="Selected projects"
-          intro="A few implementation-heavy projects that reflect both experimentation and execution."
+          intro="Selected work in language models and data analysis."
         />
 
         <div class="project-grid">
           {projects.map((project) => (
             <article class="project-card">
-              <p class="project-meta">{project.period} · {project.stack}</p>
+              <p class="project-meta">{project.status} · {project.stack}</p>
               <h3>{project.title}</h3>
               <ul>
                 {project.details.map((detail) => <li>{detail}</li>)}
               </ul>
+              {project.links.length > 0 && (
+                <div class="publication-links">
+                  {project.links.map((link) => <a href={link.href} target="_blank" rel="noreferrer">{link.label}</a>)}
+                </div>
+              )}
             </article>
           ))}
         </div>
@@ -252,7 +256,8 @@ const base = import.meta.env.BASE_URL;
         <div class="card misc-card">
           <h3 class="panel-title">Skills</h3>
           <p><strong>Technical:</strong> {skills.technical.join(", ")}</p>
-          <p><strong>Languages:</strong> {skills.languages.join(", ")}</p>
+          <p><strong>Agent engineering:</strong> {skills.agents.join(", ")}</p>
+        <p><strong>Languages:</strong> {skills.languages.join(", ")}</p>
         </div>
 
         <div class="card misc-card">
